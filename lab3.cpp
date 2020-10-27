@@ -11,7 +11,7 @@ int main(int argc, char *argv[]){
   map <string, bool> checked_keys;
 
   int opt_index = -1;
-  const char* short_options = "hlvcTPf::?";
+  const char* short_options = "hlvcTPfV::?";
   //h-help; v-version; l-list; c-computer, P-Post
   
   const struct option long_options[] = {
@@ -23,6 +23,7 @@ int main(int argc, char *argv[]){
         {"Telegram", 0, NULL, 'T'},
         {"Post", 0, NULL, 'P'},
         {"finder", 0, NULL, 'f'},
+      {"value", 19, NULL, 'V'},
         
     };
  
@@ -83,6 +84,20 @@ int main(int argc, char *argv[]){
           break;
       }
       break;
+    }
+    case 'V':{
+        if (checked_keys["V"] == false){
+            if(optarg == NULL){
+                printf("Arg: value");
+                checked_keys["V"] = true;
+            }
+            else{
+                printf("Arg: value %s\n", optarg);
+                checked_keys["V"] = true;
+            }
+            break;
+        }
+        break;
     }
     default: {
       printf("Option not found\n");
