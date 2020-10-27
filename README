@@ -1,0 +1,7 @@
+-l --list
+-h --help
+-v --version
+-c --computer
+-T --Telegram
+-P --Post
+-f --finder
